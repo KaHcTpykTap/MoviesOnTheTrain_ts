@@ -5,7 +5,7 @@ import {Action, State} from "../types";
 const initialState: State = {
     movies: JSON.parse(localStorage.getItem('movies') as string),
     genres: JSON.parse(localStorage.getItem('genres') as string),
-    movie: undefined
+    movie: JSON.parse(localStorage.getItem('movie') as string)
 };
 
 export const userReducer = (state: State = initialState, action: Action): State => {

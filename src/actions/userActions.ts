@@ -21,6 +21,13 @@ export const setMovie = (movie: Movie): Action => ({
     payload: movie
 })
 
+export const changeMovie = (movie: Movie) => {
+    return (dispatch: Dispatch) => {
+        dispatch(setMovie(movie));
+        localStorage.setItem('movie', JSON.stringify(movie));
+    }
+}
+
 
 export const fetchMovies = () => {
     return (dispatch: Dispatch) => {
@@ -68,7 +75,7 @@ export const appendMovie = (movie: DetailsMovie) => {
         // generating a random id
         const random = () => Math.floor(Math.random() * 10000);
         let id = random();
-        while (!checkId(movies, id)) {
+        while (checkId(movies, id)) {
             id = random();
         }
         // generating a random id
@@ -111,6 +118,7 @@ export const overwriteMovie =
                     }
                 }
                 movies[i].genre_ids = remGenres;
+                localStorage.setItem('movie', JSON.stringify(movies[i]));
                 dispatch(setMovie(movies[i]));
             }
         }

@@ -5,7 +5,7 @@ import {details} from "../../utils/constants";
 import {useHistory} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import Likes from "../likes/Likes";
-import {setMovie} from "../../actions/userActions";
+import {changeMovie} from "../../actions/userActions";
 import {PropsMovieCard} from "../../types";
 
 
@@ -19,7 +19,7 @@ const MovieCard = ({movie}: PropsMovieCard) => {
         <MovieCardContainer>
             <Col onClick={() => {
                 history.push(details);
-                dispatch(setMovie(movie));
+                dispatch(changeMovie(movie));
             }}>
                 <Card>
                     <Card.Img variant="bottom" src={image} alt='Card image' className='image'/>

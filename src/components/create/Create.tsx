@@ -48,7 +48,9 @@ const Create = () => {
             genre_ids: arrGenreIds(),
             backdrop_path: image.substring(32),
             overview,
-        })
+        });
+
+    console.log("new render");
 
     return (
         <CreateContainer>

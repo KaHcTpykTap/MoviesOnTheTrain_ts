@@ -7,6 +7,7 @@ import {create} from "../../utils/constants";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchGenre, fetchMovies} from "../../actions/userActions";
 import {State} from "../../types";
+import Loader from "../loader/Loader";
 
 const Home = () => {
 
@@ -32,7 +33,7 @@ const Home = () => {
                 </Col>
             </Row>
             {!movies ?
-                <div className='loader'>Loading movies...</div>
+                <Loader/>
                 :
                 (<Row xs={1} lg={4}>
                      {movies.map((item, idx) => (<MovieCard key={idx} movie={item}/>))}
